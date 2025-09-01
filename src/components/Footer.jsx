@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="py-8 text-center bg-white dark:bg-black text-gray-500 dark:text-gray-300">
+      <footer className="py-8 text-center bg-white dark:bg-black text-gray-500 dark:text-gray-300 sticky bottom-0 z-50 ">
         <div className="flex justify-center items-center gap-2 flex-wrap">
           © {new Date().getFullYear()} Kay
           <svg
