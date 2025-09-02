@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, Outlet } from "react-router";
 import ha from "../assets/house-ma.png";
+import tob from "../assets/tob.png";
+import chatty from "../assets/chat.png";
 
 // Reusable DemoCard component
 const DemoCard = ({ title, subtitle, tech, href, imgSrc }) => {
@@ -58,7 +60,7 @@ const Demos = () => {
     {
       title: "Property Pulse",
       subtitle: "Real Estate App",
-      tech: "Project | Next JS | MongoDB",
+      tech: "Project | Next JS + MongoDB",
       href: "real",
       imgSrc: ha,
     },
@@ -67,19 +69,19 @@ const Demos = () => {
       subtitle: " Messaging",
       tech: "Project | React + Node",
       href: "task-flow",
-      imgSrc: "https://kajibola.netlify.app/assets/exhibit3-CRb2mHZl.png",
+      imgSrc: chatty,
     },
     {
       title: "PortfolioGen",
       subtitle: "Portfolio Builder",
       tech: "Project | Vite + Tailwind",
       href: "portfolio-gen",
-      imgSrc: "https://kajibola.netlify.app/assets/exhibit4-DF9NdG0a.png",
+      imgSrc: tob,
     },
   ];
 
   return (
-    <div className="flex min-h-screen flex-col mx-auto bg-white dark:bg-black text-gray-800 dark:text-gray-200">
+    <div className="flex min-h-screen flex-col mx-auto bg-white dark:bg-black text-gray-800 dark:text-gray-200 pb-20">
       <div className="flex flex-col px-4 container max-w-3xl mx-auto py-10 mt-20">
         <section className="h-full w-full">
           {/* Header */}

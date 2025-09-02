@@ -1,13 +1,17 @@
-import React from "react";
+import { Link } from "react-router";
+import tob from "./assets/tob.png";
+import real from "./assets/house-ma.png";
+import chatty from "./assets/chat.png";
+import hoi from "./assets/hio.png";
 
 const Home = () => {
   return (
     <>
       <div className=" dark:bg-black dark:text-white ">
         <section className="container max-w-3xl mx-auto py-20">
-          <div className="mt-20  " style={{ opacity: 1 }}>
+          <div className="mt-10  " style={{ opacity: 1 }}>
             <img
-              src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
+              src={hoi}
               className="h-38 w-36 rounded-full"
               alt="Hello"
               loading="eager"
@@ -172,10 +176,10 @@ const Home = () => {
                     <div className="p-6">
                       {/* Header */}
                       <div className="flex flex-col">
-                        <a
+                        <Link
                           className="absolute top-4 right-4 group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-light-gray bg-background shadow-sm hover:bg-background/70 hover:text-accent-foreground h-9 w-9"
-                          title="chattr"
-                          href="/demos"
+                          title="Real"
+                          to="/demos/real"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -192,16 +196,16 @@ const Home = () => {
                               fill="currentColor"
                             />
                           </svg>
-                        </a>
+                        </Link>
                         <span className="text-xs transition-colors text-foreground">
-                          Project | Next JS
+                          Project | Next JS | Mongo DB
                         </span>
-                        <a
+                        <Link
                           className="text-lg font-semibold mb-6 transition-colors text-foreground"
                           href="/demos"
                         >
-                          Chattr
-                        </a>
+                          House MarketPlace
+                        </Link>
                       </div>
 
                       {/* Carousel */}
@@ -229,7 +233,7 @@ const Home = () => {
                                     alt="chattr screenshot 1"
                                     decoding="async"
                                     className="object-fill absolute inset-0 h-full w-full"
-                                    src="https://images.pexels.com/photos/8284731/pexels-photo-8284731.jpeg"
+                                    src={real}
                                   />
                                 </div>
                               </div>
@@ -365,10 +369,10 @@ const Home = () => {
                     <div className="p-6">
                       {/* Header */}
                       <div className="flex flex-col">
-                        <a
+                        <Link
                           className="absolute top-4 right-4 group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-light-gray bg-background shadow-sm hover:bg-background/70 hover:text-accent-foreground h-9 w-9"
                           title="chattr"
-                          href="/demos"
+                          to="/demos/real"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -385,16 +389,16 @@ const Home = () => {
                               fill="currentColor"
                             />
                           </svg>
-                        </a>
+                        </Link>
                         <span className="text-xs transition-colors text-foreground">
                           Project | Next JS
                         </span>
-                        <a
+                        <Link
                           className="text-lg font-semibold mb-6 transition-colors text-foreground"
-                          href="/demos"
+                          to="/demos/task-flow"
                         >
                           Chattr
-                        </a>
+                        </Link>
                       </div>
 
                       {/* Carousel */}
@@ -422,7 +426,7 @@ const Home = () => {
                                     alt="chattr screenshot 1"
                                     decoding="async"
                                     className="object-fill absolute inset-0 h-full w-full"
-                                    src="https://images.pexels.com/photos/8284731/pexels-photo-8284731.jpeg"
+                                    src={chatty}
                                   />
                                 </div>
                               </div>
@@ -558,10 +562,10 @@ const Home = () => {
                     <div className="p-6">
                       {/* Header */}
                       <div className="flex flex-col">
-                        <a
+                        <Link
                           className="absolute top-4 right-4 group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-light-gray bg-background shadow-sm hover:bg-background/70 hover:text-accent-foreground h-9 w-9"
                           title="chattr"
-                          href="/demos"
+                          href="/demos/portfolio-gen"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -578,16 +582,16 @@ const Home = () => {
                               fill="currentColor"
                             />
                           </svg>
-                        </a>
+                        </Link>
                         <span className="text-xs transition-colors text-foreground">
-                          Project | Next JS
+                          Project | React JS
                         </span>
-                        <a
+                        <Link
                           className="text-lg font-semibold mb-6 transition-colors text-foreground"
-                          href="/demos"
+                          href="/demos/portfolio-gen"
                         >
-                          Chattr
-                        </a>
+                          Portfolio
+                        </Link>
                       </div>
 
                       {/* Carousel */}
@@ -615,7 +619,7 @@ const Home = () => {
                                     alt="chattr screenshot 1"
                                     decoding="async"
                                     className="object-fill absolute inset-0 h-full w-full"
-                                    src="https://images.pexels.com/photos/8284731/pexels-photo-8284731.jpeg"
+                                    src={tob}
                                   />
                                 </div>
                               </div>

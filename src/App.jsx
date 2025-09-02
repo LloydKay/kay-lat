@@ -7,6 +7,7 @@ import Real from "./components/Real";
 import Taskflow from "./components/Taskflow";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/ContactForm";
+import Resume from "./components/Resume";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="portfolio-gen" element={<Portfolio />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
+        <Route path="/resume" element={<Resume />} />
       </Routes>
       <Footer />
     </BrowserRouter>

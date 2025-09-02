@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import head from "../assets/joe.png";
 
 const getInitialTheme = () => {
   if (typeof window !== "undefined") {
@@ -33,11 +34,8 @@ const Header = () => {
         <header className="flex items-center justify-between max-w-2xl mx-auto px-4  border dark:border-gray-500 rounded-lg bg-transparent">
           <Link to="/">
             <div className="flex items-center space-x-2">
-              <img
-                src="https://www.folarin.me/folarin.png"
-                alt="Kay"
-                className="w-10 h-10 rounded-full"
-              />
+              <img src={head} alt="Kay" className="w-10 h-10 rounded-full" />
+
               <span className="font-semibold text-gray-900 dark:text-white">
                 Kay
               </span>
@@ -52,7 +50,7 @@ const Header = () => {
               Notes
             </a>
             <a
-              href="#resume"
+              href="/resume"
               className="hover:text-black dark:hover:text-white"
             >
               Resume
