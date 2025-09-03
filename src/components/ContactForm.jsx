@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +16,10 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // Encode form data for Netlify
+  useEffect(() => {
+    AOS.init({ duration: 700, once: true, easing: "ease-out-cubic" });
+  }, []);
+
   const encode = (data) =>
     Object.keys(data)
       .map(
@@ -76,6 +81,7 @@ const Contact = () => {
 
   return (
     <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8 dark:bg-black">
+      {/* Background shapes */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -88,7 +94,9 @@ const Contact = () => {
           className="relative left-1/2 -z-10 aspect-[1155/678] w-[36rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72rem] dark:opacity-20"
         />
       </div>
-      <div className="mx-auto max-w-2xl text-center">
+
+      {/* Header */}
+      <div className="mx-auto max-w-2xl text-center" data-aos="fade-up">
         <h2 className="text-4xl font-semibold text-gray-900 sm:text-5xl dark:text-white">
           Reach out to me
         </h2>
@@ -97,7 +105,7 @@ const Contact = () => {
         </p>
       </div>
 
-      {/* Netlify-enabled form */}
+      {/* Form */}
       <form
         onSubmit={handleSubmit}
         name="contact"
@@ -105,8 +113,9 @@ const Contact = () => {
         data-netlify="true"
         netlify-honeypot="bot-field"
         className="mx-auto mt-16 max-w-xl sm:mt-20"
+        data-aos="fade-up"
+        data-aos-delay="100"
       >
-        {/* Hidden fields for Netlify */}
         <input type="hidden" name="form-name" value="contact" />
         <p className="hidden">
           <label>
@@ -116,8 +125,8 @@ const Contact = () => {
         </p>
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          {/* First name */}
-          <div>
+          {/* Animate each input individually */}
+          <div data-aos="fade-up" data-aos-delay="150">
             <label
               htmlFor="firstName"
               className="block text-sm font-semibold text-gray-900 dark:text-white"
@@ -135,8 +144,7 @@ const Contact = () => {
             />
           </div>
 
-          {/* Last name */}
-          <div>
+          <div data-aos="fade-up" data-aos-delay="200">
             <label
               htmlFor="lastName"
               className="block text-sm font-semibold text-gray-900 dark:text-white"
@@ -154,8 +162,11 @@ const Contact = () => {
             />
           </div>
 
-          {/* Company */}
-          <div className="sm:col-span-2">
+          <div
+            className="sm:col-span-2"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
             <label
               htmlFor="company"
               className="block text-sm font-semibold text-gray-900 dark:text-white"
@@ -173,8 +184,11 @@ const Contact = () => {
             />
           </div>
 
-          {/* Email */}
-          <div className="sm:col-span-2">
+          <div
+            className="sm:col-span-2"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <label
               htmlFor="email"
               className="block text-sm font-semibold text-gray-900 dark:text-white"
@@ -192,8 +206,11 @@ const Contact = () => {
             />
           </div>
 
-          {/* Phone */}
-          <div className="sm:col-span-2">
+          <div
+            className="sm:col-span-2"
+            data-aos="fade-up"
+            data-aos-delay="350"
+          >
             <label
               htmlFor="phone"
               className="block text-sm font-semibold text-gray-900 dark:text-white"
@@ -211,8 +228,11 @@ const Contact = () => {
             />
           </div>
 
-          {/* Message */}
-          <div className="sm:col-span-2">
+          <div
+            className="sm:col-span-2"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <label
               htmlFor="message"
               className="block text-sm font-semibold text-gray-900 dark:text-white"
@@ -230,7 +250,11 @@ const Contact = () => {
           </div>
 
           {/* Checkbox */}
-          <div className="flex gap-x-4 sm:col-span-2">
+          <div
+            className="flex gap-x-4 sm:col-span-2"
+            data-aos="fade-up"
+            data-aos-delay="450"
+          >
             <input
               id="agree"
               name="agree"
@@ -256,7 +280,7 @@ const Contact = () => {
         </div>
 
         {/* Submit button */}
-        <div className="mt-10">
+        <div className="mt-10" data-aos="fade-up" data-aos-delay="500">
           <button
             type="submit"
             disabled={loading}

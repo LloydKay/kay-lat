@@ -1,5 +1,7 @@
-import React from "react";
-import { Link, Outlet } from "react-router";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Link } from "react-router";
 import ha from "../assets/house-ma.png";
 import tob from "../assets/tob.png";
 import chatty from "../assets/chat.png";
@@ -7,7 +9,11 @@ import chatty from "../assets/chat.png";
 // Reusable DemoCard component
 const DemoCard = ({ title, subtitle, tech, href, imgSrc }) => {
   return (
-    <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-black shadow-md">
+    <div
+      className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-black shadow-md"
+      data-aos="fade-up"
+      data-aos-once="true"
+    >
       <div className="p-6 flex flex-col relative">
         {/* Top-right button */}
         <Link
@@ -56,6 +62,15 @@ const DemoCard = ({ title, subtitle, tech, href, imgSrc }) => {
 
 // Main Demos section
 const Demos = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true, // only animate once
+      startEvent: "DOMContentLoaded", // triggers immediately
+    });
+  }, []);
+
   const projects = [
     {
       title: "Property Pulse",
@@ -66,7 +81,7 @@ const Demos = () => {
     },
     {
       title: "Chatr",
-      subtitle: " Messaging",
+      subtitle: "Messaging",
       tech: "Project | React + Node",
       href: "task-flow",
       imgSrc: chatty,
