@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +32,9 @@ const Contact = () => {
       !formData.message ||
       !formData.agree
     ) {
-      alert("Please fill out all required fields and agree to the policy.");
+      toast.warning(
+        "Please fill out all required fields and agree to the policy."
+      );
       return;
     }
 
@@ -43,7 +46,9 @@ const Contact = () => {
       body: encode({ "form-name": "contact", ...formData }),
     })
       .then(() => {
-        alert("Thank you! Your message has been sent.");
+        toast.success(
+          "Your message has been sent! I will reach back to you shortly"
+        );
         setFormData({
           firstName: "",
           lastName: "",
@@ -56,7 +61,7 @@ const Contact = () => {
         setLoading(false);
       })
       .catch((error) => {
-        alert("Oops! Something went wrong: " + error);
+        toast.error("Oops! Something went wrong: " + error);
         setLoading(false);
       });
   };
