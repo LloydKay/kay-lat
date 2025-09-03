@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { Menu, X } from "lucide-react";
 import head from "../assets/joe.png";
+import AOS from "aos";
+import "aos/dist/aos.css"; // import AOS styles
 
 const getInitialTheme = () => {
   if (typeof window !== "undefined") {
@@ -17,6 +19,10 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    AOS.init({ duration: 800, once: true }); // initialize AOS
+  }, []);
+
+  useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
@@ -30,11 +36,14 @@ const Header = () => {
   return (
     <div className="w-full fixed top-0 z-50 px-4">
       <div className="mt-4">
-        <header className="flex items-center justify-between max-w-2xl mx-auto px-4 py-2 border dark:border-gray-500 rounded-lg bg-transparent">
+        <header
+          className="flex items-center justify-between max-w-2xl mx-auto px-4 py-2 border dark:border-gray-500 rounded-lg bg-transparent"
+          data-aos="fade-in"
+        >
           {/* Logo */}
-          <Link to="/">
+          <Link to="/" data-aos="fade-right" data-aos-delay="300">
             <div className="flex flex-col items-center space-y-1">
-              <img src={head} alt="Kay" className=" size-6 rounded-full" />
+              <img src={head} alt="Kay" className="size-6 rounded-full" />
               <span className="font-semibold text-gray-900 dark:text-white text-xs hidden md:block">
                 Kay
               </span>
@@ -42,7 +51,11 @@ const Header = () => {
           </Link>
 
           {/* Right side: nav + theme + hamburger */}
-          <div className="flex items-center space-x-4">
+          <div
+            className="flex items-center space-x-4"
+            data-aos="fade-left"
+            data-aos-delay="500"
+          >
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center space-x-6 text-gray-700 dark:text-gray-300">
               <a
@@ -71,7 +84,7 @@ const Header = () => {
               </a>
             </nav>
 
-            {/* Theme button always visible */}
+            {/* Theme button */}
             <button
               className="hover:opacity-70 text-lg"
               onClick={toggleTheme}
