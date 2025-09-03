@@ -80,7 +80,7 @@ const Portfolio = () => {
           <div className="flex flex-wrap gap-4 mt-3">
             {/* Visit Live Site */}
             <a
-              href="https://realtime-chat-topaz.vercel.app/login"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-light-gray bg-background shadow-sm hover:bg-background/70 hover:text-accent-foreground h-9 px-4 py-2"
@@ -90,7 +90,7 @@ const Portfolio = () => {
 
             {/* View Source */}
             <a
-              href="https://github.com/bushcode/realtime-chat.git"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-light-gray bg-background shadow-sm hover:bg-background/70 hover:text-accent-foreground h-9 px-4 py-2"
