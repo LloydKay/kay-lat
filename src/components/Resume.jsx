@@ -30,8 +30,8 @@ const Resume = () => {
             <section>
               <h3 className="text-xl font-semibold mb-2">Profile</h3>
               <p className="text-sm leading-relaxed text-neutral-300">
-                Innovative Full-Stack Engineer with 6+ years of expertise in
-                JavaScript, TypeScript, and Golang. Proven track record of
+                Innovative Full-Stack Engineer with 3+ years of expertise in
+                JavaScript, TypeScript, and Python. Proven track record of
                 architecting high-performance applications using React, Next.js,
                 and Node.js. Specializes in crafting scalable, accessible
                 solutions that blend functionality with intuitive interfaces...
@@ -45,10 +45,10 @@ const Resume = () => {
               <div className="mb-6">
                 <h4 className="font-bold">
                   Fullstack Engineer @{" "}
-                  <span className="text-blue-400">Dentsu Creative</span>
+                  <span className="text-blue-400">Bell </span>
                 </h4>
                 <p className="text-sm italic text-neutral-400">
-                  Aug 2023 — Dec 2024 | Toronto, Canada (Remote)
+                  Dec 2023 — May 2025 | Toronto, Canada (Remote)
                 </p>
                 <p className="text-xs text-neutral-500 mb-2">
                   Typescript | Node JS | React JS | MUI | Jest | Cypress |
@@ -113,22 +113,17 @@ const Resume = () => {
               <h3 className="text-xl font-semibold mb-2">Education</h3>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <p className="font-bold">Middlesex University</p>
+                  <p className="font-bold">Conestoga College</p>
                   <p className="text-neutral-300">
                     MSc, Business Information Systems
                   </p>
                   <p className="text-neutral-400 italic">
-                    London, UK | Jan 2014 - Jul 2015
+                    Kitchener, ON | Dec 2023
                   </p>
                 </li>
                 <li>
-                  <p className="font-bold">University of Plymouth</p>
-                  <p className="text-neutral-300">
-                    BSc, Business Management & IT
-                  </p>
-                  <p className="text-neutral-400 italic">
-                    Plymouth, UK | Oct 2011 - Nov 2013
-                  </p>
+                  <p className="font-bold">OAU</p>
+                  <p className="text-neutral-300">BSc, Mechanical Eng</p>
                 </li>
               </ul>
             </section>
