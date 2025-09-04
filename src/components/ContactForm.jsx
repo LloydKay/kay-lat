@@ -73,7 +73,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8 dark:bg-black h-screen">
+    <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8 dark:bg-black min-h-screen">
       {/* Background shapes */}
       <div
         aria-hidden="true"
