@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router";
 import { Menu, X } from "lucide-react";
 import head from "../assets/joe.png";
@@ -17,9 +17,13 @@ const getInitialTheme = () => {
 const Header = () => {
   const [theme, setTheme] = useState(getInitialTheme);
   const [menuOpen, setMenuOpen] = useState(false);
+  const aosInitialized = useRef(false);
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true }); // initialize AOS
+    if (!aosInitialized.current) {
+      AOS.init({ duration: 800, once: true }); // animate only once
+      aosInitialized.current = true;
+    }
   }, []);
 
   useEffect(() => {
@@ -65,7 +69,7 @@ const Header = () => {
                 Demos
               </a>
               <a
-                href="#notes"
+                href="/notes"
                 className="hover:text-black dark:hover:text-white"
               >
                 Notes
@@ -114,7 +118,7 @@ const Header = () => {
               Demos
             </a>
             <a
-              href="#notes"
+              href="/notes"
               className="block hover:text-black dark:hover:text-white"
             >
               Notes

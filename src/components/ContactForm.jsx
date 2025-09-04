@@ -9,9 +9,7 @@ const Contact = () => {
     lastName: "",
     company: "",
     email: "",
-    phone: "",
     message: "",
-    agree: false,
   });
 
   const [loading, setLoading] = useState(false);
@@ -27,48 +25,43 @@ const Contact = () => {
       )
       .join("&");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
       !formData.firstName ||
       !formData.lastName ||
       !formData.email ||
-      !formData.message ||
-      !formData.agree
+      !formData.message
     ) {
-      toast.warning(
-        "Please fill out all required fields and agree to the policy."
-      );
+      toast.error("Please fill out all required fields.");
       return;
     }
 
     setLoading(true);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...formData }),
-    })
-      .then(() => {
-        toast.success(
-          "Your message has been sent! I will reach back to you shortly"
-        );
-        setFormData({
-          firstName: "",
-          lastName: "",
-          company: "",
-          email: "",
-          phone: "",
-          message: "",
-          agree: false,
-        });
-        setLoading(false);
-      })
-      .catch((error) => {
-        toast.error("Oops! Something went wrong: " + error);
-        setLoading(false);
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...formData }),
       });
+
+      toast.success(
+        "Your message has been sent! I will reach back to you shortly."
+      );
+      setFormData({
+        firstName: "",
+        lastName: "",
+        company: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      toast.error("Oops! Something went wrong: " + error);
+    } finally {
+      setLoading(false); // ✅ reset button after request finishes
+    }
   };
 
   const handleChange = (e) => {
@@ -80,7 +73,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8 dark:bg-black">
+    <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8 dark:bg-black h-screen">
       {/* Background shapes */}
       <div
         aria-hidden="true"
@@ -119,13 +112,11 @@ const Contact = () => {
         <input type="hidden" name="form-name" value="contact" />
         <p className="hidden">
           <label>
-            Don’t fill this out:{" "}
-            <input name="bot-field" onChange={handleChange} />
+            Don’t fill this out: <input name="bot-field" />
           </label>
         </p>
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          {/* Animate each input individually */}
           <div data-aos="fade-up" data-aos-delay="150">
             <label
               htmlFor="firstName"
@@ -209,28 +200,6 @@ const Contact = () => {
           <div
             className="sm:col-span-2"
             data-aos="fade-up"
-            data-aos-delay="350"
-          >
-            <label
-              htmlFor="phone"
-              className="block text-sm font-semibold text-gray-900 dark:text-white"
-            >
-              Phone number (optional)
-            </label>
-            <input
-              id="phone"
-              name="phone"
-              type="text"
-              placeholder="123-456-7890"
-              value={formData.phone}
-              onChange={handleChange}
-              className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 outline outline-1 outline-gray-300 dark:bg-white/5 dark:text-white"
-            />
-          </div>
-
-          <div
-            className="sm:col-span-2"
-            data-aos="fade-up"
             data-aos-delay="400"
           >
             <label
@@ -248,45 +217,37 @@ const Contact = () => {
               className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 outline outline-1 outline-gray-300 dark:bg-white/5 dark:text-white"
             />
           </div>
-
-          {/* Checkbox */}
-          <div
-            className="flex gap-x-4 sm:col-span-2"
-            data-aos="fade-up"
-            data-aos-delay="450"
-          >
-            <input
-              id="agree"
-              name="agree"
-              type="checkbox"
-              checked={formData.agree}
-              onChange={handleChange}
-              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 dark:bg-white/5 dark:border-white/10"
-            />
-            <label
-              htmlFor="agree"
-              className="text-sm text-gray-600 dark:text-gray-400"
-            >
-              By selecting this, you agree to our{" "}
-              <a
-                href="#"
-                className="font-semibold text-indigo-600 dark:text-indigo-400"
-              >
-                privacy policy
-              </a>
-              .
-            </label>
-          </div>
         </div>
 
-        {/* Submit button */}
         <div className="mt-10" data-aos="fade-up" data-aos-delay="500">
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 disabled:opacity-50"
           >
-            {!loading ? "Let's talk" : "Reaching out..."}
+            {loading && (
+              <svg
+                className="h-5 w-5 animate-spin text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                ></path>
+              </svg>
+            )}
+            {loading ? "Reaching out..." : "Let's talk"}
           </button>
         </div>
       </form>

@@ -23,9 +23,7 @@ const Resume = () => {
               <span data-aos="fade-up" data-aos-delay="100">
                 kajibola@netlify.app
               </span>
-              <span data-aos="fade-up" data-aos-delay="150">
-                linkedin.com/in/kajibola
-              </span>
+
               <span data-aos="fade-up" data-aos-delay="200">
                 github.com/lloydkay
               </span>
@@ -70,7 +68,7 @@ const Resume = () => {
                 <div data-aos="fade-up" data-aos-delay="200">
                   <h4 className="font-bold">
                     Fullstack Engineer @{" "}
-                    <span className="text-blue-400">Bell</span>
+                    <span className="text-blue-400">Freelance</span>
                   </h4>
                   <p className="text-sm italic text-neutral-400">
                     Dec 2023 — May 2025 | Toronto, Canada (Remote)
@@ -81,16 +79,20 @@ const Resume = () => {
                   </p>
                   <ul className="list-disc list-inside text-sm space-y-1 text-neutral-300">
                     <li>
-                      Implemented key features for GM Live and Energy Live
-                      platforms...
+                      Designed and developed full-stack web applications using{" "}
+                      <span className="font-medium">
+                        TypeScript, React, and Node.js
+                      </span>
+                      , ensuring responsive and scalable solutions.
                     </li>
                     <li>
-                      Built responsive pages and flows for BiDi Charger claims
-                      module...
+                      Integrated third-party APIs and Firebase services for
+                      authentication, data storage, and real-time updates..
                     </li>
                     <li>
-                      Wrote robust unit and E2E test cases with Jest, Cypress,
-                      Playwright...
+                      Built reusable UI components with{" "}
+                      <span className="font-medium">MUI</span> to streamline
+                      front-end development across multiple projects.
                     </li>
                   </ul>
                 </div>
@@ -99,7 +101,7 @@ const Resume = () => {
                 <div data-aos="fade-up" data-aos-delay="300">
                   <h4 className="font-bold">
                     Junior Developer @{" "}
-                    <span className="text-blue-400">StartupX</span>
+                    <span className="text-blue-400">Startup</span>
                   </h4>
                   <p className="text-sm italic text-neutral-400">
                     Jan 2022 — Nov 2023 | Remote

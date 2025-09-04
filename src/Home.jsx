@@ -57,18 +57,18 @@ const Home = () => {
             {[
               {
                 title: "Javascript - Basic Concepts",
-                subtitle: "Note | Javascript | Tue, 9th Jul. 2024",
+                subtitle: "Note | Javascript ",
                 link: "/notes/javascript-fundamentals",
                 description:
                   "JavaScript is a single-threaded, non-blocking, asynchronous language. To understand how it handles concurrent operations, it is import to understand several...",
                 iconColor: "text-note-orange",
               },
               {
-                title: "Javascript - Basic Concepts",
-                subtitle: "Note | Javascript | Tue, 9th Jul. 2024",
+                title: "Reacr - Performance Optimization Techniques",
+                subtitle: "Note | React ",
                 link: "/notes/javascript-fundamentals",
                 description:
-                  "JavaScript is a single-threaded, non-blocking, asynchronous language. To understand how it handles concurrent operations, it is import to understand several...",
+                  "Some performance optimization techniques that can be used in React applications. Most of these techniques are not specific to React or any frontend libraries or framework...",
                 iconColor: "text-note-orange",
               },
             ].map((note, idx) => (

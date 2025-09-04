@@ -8,6 +8,8 @@ import Taskflow from "./components/Taskflow";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/ContactForm";
 import Resume from "./components/Resume";
+import NotesPage from "./components/Notes";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
         </Route>
         <Route path="/contact" element={<Contact />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/notes" element={<NotesPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
