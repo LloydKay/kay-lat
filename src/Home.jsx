@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div className="dark:bg-black dark:text-white">
-      <div className="flex flex-col px-4 container max-w-3xl mx-auto py-10">
+      <div className="flex flex-col px-4 container max-w-3xl mx-auto py-10 ">
         <section className="container max-w-3xl mx-auto">
           <div className="mt-10" style={{ opacity: 1 }}>
             {/* Profile Image */}
